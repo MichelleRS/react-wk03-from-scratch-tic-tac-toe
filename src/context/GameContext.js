@@ -32,4 +32,12 @@ const useGameContext = () => {
   return context;
 };
 
+export function handleClick() {
+  // add logic:
+  // check if space has an X or O
+  // check if game is over
+  // else, fill box with current player X or O
+  // switch current player
+}
+
 export { GameProvider, useGameContext };
