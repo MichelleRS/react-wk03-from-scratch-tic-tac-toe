@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import boardData from '../board-data.js';
 
 const GameContext = createContext();
 
