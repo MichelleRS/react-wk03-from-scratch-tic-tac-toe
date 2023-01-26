@@ -9,6 +9,14 @@ const GameProvider = ({ children }) => {
   const [active, setActive] = useState(true);
   const [gameMessage, setGameMessage] = useState('');
 
+  const handleClick = () => {
+    // add logic:
+    // check if space has an X or O
+    // check if game is over
+    // else, fill box with current player X or O
+    // switch current player
+  };
+
   return (
     <GameContext.Provider
       value={{
@@ -20,6 +28,7 @@ const GameProvider = ({ children }) => {
         setActive,
         gameMessage,
         setGameMessage,
+        handleClick,
       }}
     >
       {children}
@@ -31,13 +40,5 @@ const useGameContext = () => {
   const context = useContext(GameContext);
   return context;
 };
-
-export function handleClick() {
-  // add logic:
-  // check if space has an X or O
-  // check if game is over
-  // else, fill box with current player X or O
-  // switch current player
-}
 
 export { GameProvider, useGameContext };
