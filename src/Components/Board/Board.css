@@ -1,1 +1,7 @@
-
+.board {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  height: 600px;
+  width: 600px;
+  gap: 10px;
+}
