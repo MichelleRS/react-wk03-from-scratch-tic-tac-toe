@@ -7,7 +7,7 @@ const GameProvider = ({ children }) => {
   const [board, setBoard] = useState(boardData);
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [active, setActive] = useState(true);
-  const [gameMessage, setGameMessage] = useState();
+  const [gameMessage, setGameMessage] = useState('');
 
   return (
     <GameContext.Provider
