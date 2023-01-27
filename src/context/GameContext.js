@@ -9,11 +9,14 @@ const GameProvider = ({ children }) => {
   const [active, setActive] = useState(true);
   const [gameMessage, setGameMessage] = useState('');
 
-  const handleClick = () => {
+  const handleClick = (space) => {
     // add logic:
     // check if space has an X or O
     // check if game is over
-    // else, fill box with current player X or O
+    // else, change box content to current player: X or O
+    board[space] = { space: space, content: currentPlayer };
+    // return content to Box
+
     // switch current player
     setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
   };
