@@ -6,7 +6,7 @@ const GameContext = createContext();
 const GameProvider = ({ children }) => {
   const [board, setBoard] = useState(boardData);
   const [currentPlayer, setCurrentPlayer] = useState('X');
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   const [gameMessage, setGameMessage] = useState('');
 
   const handleClick = (space) => {
@@ -19,6 +19,8 @@ const GameProvider = ({ children }) => {
       board[space] = { space: space, content: currentPlayer };
       // switch current player
       setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
+      // check if winner
+      checkWinner(board);
     }
     // return content to Box
   };
@@ -40,6 +42,13 @@ const GameProvider = ({ children }) => {
       {children}
     </GameContext.Provider>
   );
+};
+
+// check for winner
+const checkWinner = (board) => {
+  if (board[0].content === board[1].content && board[1].content === board[2].content) {
+    console.log('winner');
+  }
 };
 
 const useGameContext = () => {
