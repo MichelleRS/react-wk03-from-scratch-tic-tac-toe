@@ -6,11 +6,13 @@ const GameContext = createContext();
 const GameProvider = ({ children }) => {
   const [board, setBoard] = useState(boardData);
   const [currentPlayer, setCurrentPlayer] = useState('X');
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
   const [gameMessage, setGameMessage] = useState('');
 
   const handleClick = (space) => {
     // add logic:
+    // check if game is over
+    if (!active) return;
     // check if space has an X or O
     if (!board[space].content) {
       // change box content to current player: X or O
@@ -18,7 +20,6 @@ const GameProvider = ({ children }) => {
       // switch current player
       setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
     }
-    // check if game is over
     // return content to Box
   };
 
