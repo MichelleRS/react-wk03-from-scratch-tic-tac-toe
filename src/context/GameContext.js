@@ -51,14 +51,14 @@ const checkMatch = (a, b, c) => {
 };
 // check for winner
 const checkWinner = (board) => {
-  if (checkMatch(board[0].content, board[1].content, board[2].content));
-  if (checkMatch(board[3].content, board[4].content, board[5].content));
-  if (checkMatch(board[6].content, board[7].content, board[8].content));
-  if (checkMatch(board[0].content, board[3].content, board[6].content));
-  if (checkMatch(board[1].content, board[4].content, board[7].content));
-  if (checkMatch(board[2].content, board[5].content, board[8].content));
-  if (checkMatch(board[0].content, board[4].content, board[8].content));
-  if (checkMatch(board[2].content, board[4].content, board[6].content));
+  if (checkMatch(board[0].content, board[1].content, board[2].content)) return board[0].content;
+  if (checkMatch(board[3].content, board[4].content, board[5].content)) return board[3].content;
+  if (checkMatch(board[6].content, board[7].content, board[8].content)) return board[6].content;
+  if (checkMatch(board[0].content, board[3].content, board[6].content)) return board[0].content;
+  if (checkMatch(board[1].content, board[4].content, board[7].content)) return board[1].content;
+  if (checkMatch(board[2].content, board[5].content, board[8].content)) return board[2].content;
+  if (checkMatch(board[0].content, board[4].content, board[8].content)) return board[0].content;
+  if (checkMatch(board[2].content, board[4].content, board[6].content)) return board[2].content;
 };
 
 const useGameContext = () => {
