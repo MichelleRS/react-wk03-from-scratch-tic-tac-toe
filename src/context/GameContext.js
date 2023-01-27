@@ -44,11 +44,14 @@ const GameProvider = ({ children }) => {
   );
 };
 
+// check for a match of 3
+const checkMatch = (a, b, c) => {
+  if (!a || !b || !c) return false;
+  if (a === b && b === c) return true;
+};
 // check for winner
 const checkWinner = (board) => {
-  if (board[0].content === board[1].content && board[1].content === board[2].content) {
-    console.log('winner');
-  }
+  if (checkMatch(board[0].content, board[1].content, board[2].content)) console.log('winner!!!');
 };
 
 const useGameContext = () => {
