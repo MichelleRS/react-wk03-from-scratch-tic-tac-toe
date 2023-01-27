@@ -15,6 +15,7 @@ const GameProvider = ({ children }) => {
     // check if game is over
     // else, fill box with current player X or O
     // switch current player
+    setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
   };
 
   return (
