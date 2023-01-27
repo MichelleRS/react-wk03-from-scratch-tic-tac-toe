@@ -22,7 +22,20 @@ const GameProvider = ({ children }) => {
       // check if winner
       checkWinner(board);
     }
-    // return content to Box
+    // add checkGameStatus()
+    checkGameStatus();
+  };
+
+  // check game status
+  const checkGameStatus = () => {
+    if (!active) return;
+    const winner = checkWinner(board);
+    if (winner) {
+      // add set game message
+      setActive(false);
+    } else if (board[8].content === 'X') {
+      // add set game message
+    }
   };
 
   return (
