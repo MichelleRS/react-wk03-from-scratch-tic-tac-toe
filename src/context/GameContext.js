@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import boardData from '../board-data.js';
 
 const GameContext = createContext();
@@ -21,22 +21,32 @@ const GameProvider = ({ children }) => {
       setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
       // check if winner
       checkWinner(board);
+      setBoard(board);
     }
     // add checkGameStatus()
-    checkGameStatus();
+    // checkGameStatus(board);
   };
 
+  const boardContent = [];
+  for (let box of board) {
+    boardContent.push(box.content);
+  }
+  console.log('board content:', boardContent);
+
   // check game status
-  const checkGameStatus = () => {
+  const checkGameStatus = (board) => {
     if (!active) return;
     const winner = checkWinner(board);
     if (winner) {
       // add set game message
       setActive(false);
-    } else if (board[8].content === 'X') {
+    } else if (!boardContent.some((i) => i === '')) {
       // add set game message
+      console.log('No winner!');
     }
   };
+
+  // if tie
 
   return (
     <GameContext.Provider
@@ -50,6 +60,7 @@ const GameProvider = ({ children }) => {
         gameMessage,
         setGameMessage,
         handleClick,
+        checkGameStatus,
       }}
     >
       {children}
@@ -76,6 +87,10 @@ const checkWinner = (board) => {
 
 const useGameContext = () => {
   const context = useContext(GameContext);
+  // solve the extra click needed for a cat's game
+  useEffect(() => {
+    context.checkGameStatus(context.board);
+  }, [context]);
   return context;
 };
 
