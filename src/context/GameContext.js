@@ -31,7 +31,6 @@ const GameProvider = ({ children }) => {
   for (let box of board) {
     boardContent.push(box.content);
   }
-  console.log('board content:', boardContent);
 
   // check game status
   const checkGameStatus = (board) => {
@@ -39,10 +38,11 @@ const GameProvider = ({ children }) => {
     const winner = checkWinner(board);
     if (winner) {
       // add set game message
+      setGameMessage(`Player ${winner} wins!!`);
       setActive(false);
     } else if (!boardContent.some((i) => i === '')) {
       // add set game message
-      console.log('No winner!');
+      setGameMessage('No winner!');
     }
   };
 
