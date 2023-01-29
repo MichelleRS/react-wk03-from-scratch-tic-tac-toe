@@ -8,7 +8,7 @@ export default function Box({ space, content }) {
 
   return (
     <div className="box" onClick={() => handleClick(space)}>
-      Box {content}
+      {content}
     </div>
   );
 }

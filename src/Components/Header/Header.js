@@ -1,5 +1,6 @@
 import React from 'react';
 import { useGameContext } from '../../context/GameContext.js';
+import './Header.css';
 
 export default function Header() {
   const { gameMessage, setBoard, setCurrentPlayer, setActive, setGameMessage } = useGameContext();
