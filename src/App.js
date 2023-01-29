@@ -1,6 +1,7 @@
 import './App.css';
 import Board from './Components/Board/Board.js';
 import Header from './Components/Header/Header.js';
+import GameMessage from './Components/GameMessage/GameMessage.js';
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       <Header />
       {/* board */}
       <Board />
+      {/* game message */}
+      <GameMessage />
     </div>
   );
 }

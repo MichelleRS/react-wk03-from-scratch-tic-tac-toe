@@ -3,7 +3,7 @@ import { useGameContext } from '../../context/GameContext.js';
 import './Header.css';
 
 export default function Header() {
-  const { gameMessage, setBoard, setCurrentPlayer, setActive, setGameMessage } = useGameContext();
+  const { setBoard, setCurrentPlayer, setActive, setGameMessage } = useGameContext();
 
   function resetGame() {
     setActive(true);
@@ -25,7 +25,6 @@ export default function Header() {
   return (
     <header>
       <h1>Tic-Tac-Toe</h1>
-      <p>{gameMessage}</p>
       <button onClick={resetGame}>New Game</button>
     </header>
   );
