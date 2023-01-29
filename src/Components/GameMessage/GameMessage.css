@@ -1,0 +1,18 @@
+p {
+  font-size: 2rem;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin: 20px 0px;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+@supports (-webkit-text-stroke: 1px black) {
+  p {
+    -webkit-text-stroke: 1.75px black;
+    -webkit-text-fill-color: white;
+  }
+}
+
+/*
+  Stroke effect source:
+  https://css-tricks.com/adding-stroke-to-web-text/
+  */
