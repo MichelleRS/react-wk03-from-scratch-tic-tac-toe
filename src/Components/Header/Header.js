@@ -19,7 +19,7 @@ export default function Header() {
       { space: 8, content: '' },
     ]);
     setCurrentPlayer('X');
-    setGameMessage('');
+    setGameMessage("It's your turn, Player X");
   }
 
   return (
