@@ -7,7 +7,7 @@ const GameProvider = ({ children }) => {
   const [board, setBoard] = useState(boardData);
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [active, setActive] = useState(true);
-  const [gameMessage, setGameMessage] = useState('');
+  const [gameMessage, setGameMessage] = useState(`It's your turn, Player ${currentPlayer}`);
 
   const handleClick = (space) => {
     // add logic:
@@ -19,6 +19,8 @@ const GameProvider = ({ children }) => {
       board[space] = { space: space, content: currentPlayer };
       // switch current player
       setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
+      // show turn message
+      yourTurnMessage();
       // check if winner
       checkWinner(board);
       setBoard(board);
@@ -27,6 +29,7 @@ const GameProvider = ({ children }) => {
     // checkGameStatus(board);
   };
 
+  // push board content into an array to use in check game status
   const boardContent = [];
   for (let box of board) {
     boardContent.push(box.content);
@@ -46,7 +49,14 @@ const GameProvider = ({ children }) => {
     }
   };
 
-  // if tie
+  // set current player message
+  const yourTurnMessage = () => {
+    if (currentPlayer === 'O') {
+      setGameMessage("It's your turn, Player X");
+    } else if (currentPlayer === 'X') {
+      setGameMessage("It's your turn, Player O");
+    }
+  };
 
   return (
     <GameContext.Provider
